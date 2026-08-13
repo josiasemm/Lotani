@@ -139,7 +139,6 @@ function Detalle() {
               <Link
                 to="/checkout/$id"
                 params={{ id: e.id }}
-                disabled={!listo}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary py-3.5 font-medium text-primary-foreground transition-transform active:scale-95 ${
                   listo ? "" : "pointer-events-none opacity-40"
                 }`}

@@ -38,7 +38,7 @@ function Auth() {
   const entrar = () => {
     if (!puede) return;
     setSesion({
-      nombre: nombre || email.split("@")[0],
+      nombre: nombre || email.split("@")[0] || "Usuario",
       email,
       rol,
       pimvs: rol === "criador" ? pimvs : undefined,
