@@ -41,7 +41,7 @@ function Auth() {
       nombre: nombre || email.split("@")[0] || "Usuario",
       email,
       rol,
-      pimvs: rol === "criador" ? pimvs : undefined,
+      ...(rol === "criador" && pimvs ? { pimvs } : {}),
       verificado: rol === "comprador",
     });
     void navigate({ to: rol === "criador" && tab === "registro" ? "/verificacion" : "/explorar" });

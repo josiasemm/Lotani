@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ExplorarRouteImport } from './routes/explorar'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as CheckoutIdRouteImport } from './routes/checkout.$id'
 import { Route as EjemplarIdRouteImport } from './routes/ejemplar.$id'
+import { Route as EstatusIdRouteImport } from './routes/estatus.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,9 +37,19 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CheckoutIdRoute = CheckoutIdRouteImport.update({
+  id: '/checkout/$id',
+  path: '/checkout/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EjemplarIdRoute = EjemplarIdRouteImport.update({
   id: '/ejemplar/$id',
   path: '/ejemplar/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstatusIdRoute = EstatusIdRouteImport.update({
+  id: '/estatus/$id',
+  path: '/estatus/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -46,14 +58,18 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
   '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
   '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +77,38 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
   '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/explorar' | '/api/chat' | '/ejemplar/$id'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/explorar' | '/api/chat' | '/ejemplar/$id'
-  id: '__root__' | '/' | '/auth' | '/explorar' | '/api/chat' | '/ejemplar/$id'
+  to:
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,7 +116,9 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   ExplorarRoute: typeof ExplorarRoute
   ApiChatRoute: typeof ApiChatRoute
+  CheckoutIdRoute: typeof CheckoutIdRoute
   EjemplarIdRoute: typeof EjemplarIdRoute
+  EstatusIdRoute: typeof EstatusIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,11 +151,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/checkout/$id': {
+      id: '/checkout/$id'
+      path: '/checkout/$id'
+      fullPath: '/checkout/$id'
+      preLoaderRoute: typeof CheckoutIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ejemplar/$id': {
       id: '/ejemplar/$id'
       path: '/ejemplar/$id'
       fullPath: '/ejemplar/$id'
       preLoaderRoute: typeof EjemplarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estatus/$id': {
+      id: '/estatus/$id'
+      path: '/estatus/$id'
+      fullPath: '/estatus/$id'
+      preLoaderRoute: typeof EstatusIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -124,7 +180,9 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   ExplorarRoute: ExplorarRoute,
   ApiChatRoute: ApiChatRoute,
+  CheckoutIdRoute: CheckoutIdRoute,
   EjemplarIdRoute: EjemplarIdRoute,
+  EstatusIdRoute: EstatusIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
