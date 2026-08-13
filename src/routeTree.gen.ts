@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ExplorarRouteImport } from './routes/explorar'
+import { Route as GuiasRouteImport } from './routes/guias'
+import { Route as LegalidadRouteImport } from './routes/legalidad'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as CheckoutIdRouteImport } from './routes/checkout.$id'
 import { Route as EjemplarIdRouteImport } from './routes/ejemplar.$id'
@@ -30,6 +32,16 @@ const AuthRoute = AuthRouteImport.update({
 const ExplorarRoute = ExplorarRouteImport.update({
   id: '/explorar',
   path: '/explorar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiasRoute = GuiasRouteImport.update({
+  id: '/guias',
+  path: '/guias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalidadRoute = LegalidadRouteImport.update({
+  id: '/legalidad',
+  path: '/legalidad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -57,6 +69,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -66,6 +80,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -76,6 +92,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -87,6 +105,8 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/explorar'
+    | '/guias'
+    | '/legalidad'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -96,6 +116,8 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/explorar'
+    | '/guias'
+    | '/legalidad'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -105,6 +127,8 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/explorar'
+    | '/guias'
+    | '/legalidad'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -115,6 +139,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthRoute: typeof AuthRoute
   ExplorarRoute: typeof ExplorarRoute
+  GuiasRoute: typeof GuiasRoute
+  LegalidadRoute: typeof LegalidadRoute
   ApiChatRoute: typeof ApiChatRoute
   CheckoutIdRoute: typeof CheckoutIdRoute
   EjemplarIdRoute: typeof EjemplarIdRoute
@@ -142,6 +168,20 @@ declare module '@tanstack/react-router' {
       path: '/explorar'
       fullPath: '/explorar'
       preLoaderRoute: typeof ExplorarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guias': {
+      id: '/guias'
+      path: '/guias'
+      fullPath: '/guias'
+      preLoaderRoute: typeof GuiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legalidad': {
+      id: '/legalidad'
+      path: '/legalidad'
+      fullPath: '/legalidad'
+      preLoaderRoute: typeof LegalidadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -179,6 +219,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthRoute: AuthRoute,
   ExplorarRoute: ExplorarRoute,
+  GuiasRoute: GuiasRoute,
+  LegalidadRoute: LegalidadRoute,
   ApiChatRoute: ApiChatRoute,
   CheckoutIdRoute: CheckoutIdRoute,
   EjemplarIdRoute: EjemplarIdRoute,
