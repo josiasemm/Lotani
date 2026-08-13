@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ExplorarRouteImport } from './routes/explorar'
+import { Route as GuiasRouteImport } from './routes/guias'
+import { Route as LegalidadRouteImport } from './routes/legalidad'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as CheckoutIdRouteImport } from './routes/checkout.$id'
+import { Route as EjemplarIdRouteImport } from './routes/ejemplar.$id'
+import { Route as EstatusIdRouteImport } from './routes/estatus.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExplorarRoute = ExplorarRouteImport.update({
+  id: '/explorar',
+  path: '/explorar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiasRoute = GuiasRouteImport.update({
+  id: '/guias',
+  path: '/guias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalidadRoute = LegalidadRouteImport.update({
+  id: '/legalidad',
+  path: '/legalidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutIdRoute = CheckoutIdRouteImport.update({
+  id: '/checkout/$id',
+  path: '/checkout/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EjemplarIdRoute = EjemplarIdRouteImport.update({
+  id: '/ejemplar/$id',
+  path: '/ejemplar/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstatusIdRoute = EstatusIdRouteImport.update({
+  id: '/estatus/$id',
+  path: '/estatus/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
+  '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
+  '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/explorar': typeof ExplorarRoute
+  '/guias': typeof GuiasRoute
+  '/legalidad': typeof LegalidadRoute
+  '/api/chat': typeof ApiChatRoute
+  '/checkout/$id': typeof CheckoutIdRoute
+  '/ejemplar/$id': typeof EjemplarIdRoute
+  '/estatus/$id': typeof EstatusIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/guias'
+    | '/legalidad'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/guias'
+    | '/legalidad'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/explorar'
+    | '/guias'
+    | '/legalidad'
+    | '/api/chat'
+    | '/checkout/$id'
+    | '/ejemplar/$id'
+    | '/estatus/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  ExplorarRoute: typeof ExplorarRoute
+  GuiasRoute: typeof GuiasRoute
+  LegalidadRoute: typeof LegalidadRoute
+  ApiChatRoute: typeof ApiChatRoute
+  CheckoutIdRoute: typeof CheckoutIdRoute
+  EjemplarIdRoute: typeof EjemplarIdRoute
+  EstatusIdRoute: typeof EstatusIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explorar': {
+      id: '/explorar'
+      path: '/explorar'
+      fullPath: '/explorar'
+      preLoaderRoute: typeof ExplorarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guias': {
+      id: '/guias'
+      path: '/guias'
+      fullPath: '/guias'
+      preLoaderRoute: typeof GuiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legalidad': {
+      id: '/legalidad'
+      path: '/legalidad'
+      fullPath: '/legalidad'
+      preLoaderRoute: typeof LegalidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout/$id': {
+      id: '/checkout/$id'
+      path: '/checkout/$id'
+      fullPath: '/checkout/$id'
+      preLoaderRoute: typeof CheckoutIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ejemplar/$id': {
+      id: '/ejemplar/$id'
+      path: '/ejemplar/$id'
+      fullPath: '/ejemplar/$id'
+      preLoaderRoute: typeof EjemplarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estatus/$id': {
+      id: '/estatus/$id'
+      path: '/estatus/$id'
+      fullPath: '/estatus/$id'
+      preLoaderRoute: typeof EstatusIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  ExplorarRoute: ExplorarRoute,
+  GuiasRoute: GuiasRoute,
+  LegalidadRoute: LegalidadRoute,
+  ApiChatRoute: ApiChatRoute,
+  CheckoutIdRoute: CheckoutIdRoute,
+  EjemplarIdRoute: EjemplarIdRoute,
+  EstatusIdRoute: EstatusIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
