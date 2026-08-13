@@ -4,12 +4,12 @@ import { ShieldCheck, FileText } from "lucide-react";
 export function LegalProvenance({
   registro,
   criador,
-  href,
+  ejemplarId,
   compacto = false,
 }: {
   registro: string;
   criador: string;
-  href?: string;
+  ejemplarId?: string;
   compacto?: boolean;
 }) {
   return (
@@ -34,9 +34,10 @@ export function LegalProvenance({
           <p className="font-medium">{criador}</p>
         </div>
       </div>
-      {href ? (
+      {ejemplarId ? (
         <Link
-          to={href}
+          to="/ejemplar/$id"
+          params={{ id: ejemplarId }}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-gold/60 px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
         >
           <FileText className="size-4" /> Ver documentación
