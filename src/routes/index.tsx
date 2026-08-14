@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Leaf, Lock } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import hero from "@/assets/hero-reserva.jpg";
-import hero from "@/assets/hero-reserva.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
