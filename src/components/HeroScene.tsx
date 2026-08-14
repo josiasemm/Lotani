@@ -27,10 +27,10 @@ export function HeroScene() {
         <image
           key={src}
           href={src}
-          x="110"
-          y="452"
-          width="210"
-          height="95"
+          x="161"
+          y="497"
+          width="90"
+          height="42"
           preserveAspectRatio="xMidYMax meet"
           opacity={idx === i ? 1 : 0}
         />
