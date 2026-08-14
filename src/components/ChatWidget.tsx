@@ -181,10 +181,10 @@ export function ChatWidget() {
                       className={
                         m.role === "user"
                           ? "ml-auto max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-tr-sm bg-primary p-3 text-sm text-primary-foreground"
-                          : "max-w-[90%] whitespace-pre-wrap rounded-2xl rounded-tl-sm bg-secondary p-3 text-sm"
+                          : "max-w-[90%] space-y-1 rounded-2xl rounded-tl-sm bg-secondary p-3 text-sm"
                       }
                     >
-                      {texto}
+                      {m.role === "user" ? texto : <Markdown texto={texto} />}
                     </div>
                     {mencionado && (
                       <LegalProvenance
