@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Leaf, Lock } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import hero from "@/assets/hero-reserva.jpg";
-import tortuga from "@/assets/tortuga-silueta.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,19 +61,6 @@ function Splash() {
           </Link>
         </div>
 
-        <div className="mt-16 flex w-full items-end justify-center gap-6 opacity-90">
-          {[36, 56, 84].map((h, i) => (
-            <img
-              key={h}
-              src={tortuga}
-              alt=""
-              aria-hidden
-              loading="lazy"
-              className="animate-walk"
-              style={{ height: h, animationDelay: `${i * 0.5}s` }}
-            />
-          ))}
-        </div>
 
         <div className="mt-16 grid w-full gap-4 sm:grid-cols-3">
           {[
