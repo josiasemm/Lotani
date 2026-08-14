@@ -41,23 +41,23 @@ function Splash() {
         <h1 className="animate-fade-up mt-8 text-3xl font-semibold tracking-tight sm:text-5xl">
           El comercio legal de fauna exótica, por fin en un solo lugar
         </h1>
-        <p className="text-muted-foreground animate-fade-up mt-5 max-w-2xl text-base sm:text-lg">
+        <p className="animate-fade-up mt-5 max-w-2xl text-base text-[#E2E8E0] sm:text-lg">
           Criadores certificados PIMVS/UMA, documentación de procedencia legal en cada publicación
           y pago protegido con escrow.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
-            to="/auth"
-            className="rounded-full bg-primary px-8 py-3 font-medium text-primary-foreground transition-transform active:scale-95"
-          >
-            Ingresar a LOTANI
-          </Link>
-          <Link
             to="/explorar"
-            className="rounded-full border border-foreground/30 px-8 py-3 font-medium transition-colors hover:bg-foreground/5"
+            className="rounded-full bg-[#A9D3B0] px-8 py-3 font-bold text-[#101B14] transition-transform active:scale-95"
           >
             Descubrir ejemplares
+          </Link>
+          <Link
+            to="/auth"
+            className="rounded-full border border-foreground/30 px-8 py-3 font-normal transition-colors hover:bg-foreground/5"
+          >
+            Ingresar a LOTANI
           </Link>
         </div>
 
@@ -68,10 +68,10 @@ function Splash() {
             { icon: Lock, t: "Pago con escrow", d: "Fondos resguardados hasta la recepción" },
             { icon: Leaf, t: "Asistente IA", d: "Dudas legales y fichas de cuidado" },
           ].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="panel p-5 text-left">
+            <div key={t} className="panel border border-[#2A3C2E] p-5 text-left">
               <Icon className="size-5 text-primary" />
               <p className="mt-3 font-semibold">{t}</p>
-              <p className="text-muted-foreground text-sm">{d}</p>
+              <p className="text-sm text-[#E2E8E0]">{d}</p>
             </div>
           ))}
         </div>
