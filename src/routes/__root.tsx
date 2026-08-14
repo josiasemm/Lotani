@@ -77,16 +77,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "LOTANI — Marketplace de fauna exótica legal" },
+      {
+        name: "description",
+        content:
+          "Marketplace mexicano de fauna exótica con criadores verificados PIMVS/UMA, procedencia legal y pago con escrow.",
+      },
+      { name: "author", content: "LOTANI" },
+      { property: "og:title", content: "LOTANI — Marketplace de fauna exótica legal" },
+      {
+        property: "og:description",
+        content: "Criadores verificados, trazabilidad SEMARNAT y escrow seguro.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,

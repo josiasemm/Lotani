@@ -13,6 +13,39 @@ const SUGERENCIAS = [
   "Cuéntame cómo cuidar una tortuga caimán",
 ];
 
+function Markdown({ texto }: { texto: string }) {
+  return (
+    <>
+      {texto.split("\n").map((linea, i) => {
+        const limpia = linea.replace(/^[*-]\s+/, "");
+        const partes = limpia.split(/\*\*(.+?)\*\*/g);
+        const contenido = partes.map((p, j) =>
+          j % 2 === 1 ? (
+            <strong key={j} className="font-semibold">
+              {p}
+            </strong>
+          ) : (
+            <span key={j}>{p}</span>
+          ),
+        );
+        if (/^[*-]\s+/.test(linea)) {
+          return (
+            <span key={i} className="flex gap-2">
+              <span className="text-primary">•</span>
+              <span>{contenido}</span>
+            </span>
+          );
+        }
+        return (
+          <span key={i} className="block">
+            {contenido}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
 export function ChatWidget() {
   const { sesion } = useSesion();
   const [abierto, setAbierto] = useState(false);
@@ -148,10 +181,10 @@ export function ChatWidget() {
                       className={
                         m.role === "user"
                           ? "ml-auto max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-tr-sm bg-primary p-3 text-sm text-primary-foreground"
-                          : "max-w-[90%] whitespace-pre-wrap rounded-2xl rounded-tl-sm bg-secondary p-3 text-sm"
+                          : "max-w-[90%] space-y-1 rounded-2xl rounded-tl-sm bg-secondary p-3 text-sm"
                       }
                     >
-                      {texto}
+                      {m.role === "user" ? texto : <Markdown texto={texto} />}
                     </div>
                     {mencionado && (
                       <LegalProvenance

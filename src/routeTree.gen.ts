@@ -14,6 +14,9 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ExplorarRouteImport } from './routes/explorar'
 import { Route as GuiasRouteImport } from './routes/guias'
 import { Route as LegalidadRouteImport } from './routes/legalidad'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as PublicarRouteImport } from './routes/publicar'
+import { Route as VerificacionRouteImport } from './routes/verificacion'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as CheckoutIdRouteImport } from './routes/checkout.$id'
 import { Route as EjemplarIdRouteImport } from './routes/ejemplar.$id'
@@ -44,6 +47,21 @@ const LegalidadRoute = LegalidadRouteImport.update({
   path: '/legalidad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicarRoute = PublicarRouteImport.update({
+  id: '/publicar',
+  path: '/publicar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificacionRoute = VerificacionRouteImport.update({
+  id: '/verificacion',
+  path: '/verificacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -71,6 +89,9 @@ export interface FileRoutesByFullPath {
   '/explorar': typeof ExplorarRoute
   '/guias': typeof GuiasRoute
   '/legalidad': typeof LegalidadRoute
+  '/perfil': typeof PerfilRoute
+  '/publicar': typeof PublicarRoute
+  '/verificacion': typeof VerificacionRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -82,6 +103,9 @@ export interface FileRoutesByTo {
   '/explorar': typeof ExplorarRoute
   '/guias': typeof GuiasRoute
   '/legalidad': typeof LegalidadRoute
+  '/perfil': typeof PerfilRoute
+  '/publicar': typeof PublicarRoute
+  '/verificacion': typeof VerificacionRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -94,6 +118,9 @@ export interface FileRoutesById {
   '/explorar': typeof ExplorarRoute
   '/guias': typeof GuiasRoute
   '/legalidad': typeof LegalidadRoute
+  '/perfil': typeof PerfilRoute
+  '/publicar': typeof PublicarRoute
+  '/verificacion': typeof VerificacionRoute
   '/api/chat': typeof ApiChatRoute
   '/checkout/$id': typeof CheckoutIdRoute
   '/ejemplar/$id': typeof EjemplarIdRoute
@@ -107,6 +134,9 @@ export interface FileRouteTypes {
     | '/explorar'
     | '/guias'
     | '/legalidad'
+    | '/perfil'
+    | '/publicar'
+    | '/verificacion'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -118,6 +148,9 @@ export interface FileRouteTypes {
     | '/explorar'
     | '/guias'
     | '/legalidad'
+    | '/perfil'
+    | '/publicar'
+    | '/verificacion'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -129,6 +162,9 @@ export interface FileRouteTypes {
     | '/explorar'
     | '/guias'
     | '/legalidad'
+    | '/perfil'
+    | '/publicar'
+    | '/verificacion'
     | '/api/chat'
     | '/checkout/$id'
     | '/ejemplar/$id'
@@ -141,6 +177,9 @@ export interface RootRouteChildren {
   ExplorarRoute: typeof ExplorarRoute
   GuiasRoute: typeof GuiasRoute
   LegalidadRoute: typeof LegalidadRoute
+  PerfilRoute: typeof PerfilRoute
+  PublicarRoute: typeof PublicarRoute
+  VerificacionRoute: typeof VerificacionRoute
   ApiChatRoute: typeof ApiChatRoute
   CheckoutIdRoute: typeof CheckoutIdRoute
   EjemplarIdRoute: typeof EjemplarIdRoute
@@ -184,6 +223,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalidadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publicar': {
+      id: '/publicar'
+      path: '/publicar'
+      fullPath: '/publicar'
+      preLoaderRoute: typeof PublicarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verificacion': {
+      id: '/verificacion'
+      path: '/verificacion'
+      fullPath: '/verificacion'
+      preLoaderRoute: typeof VerificacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -221,6 +281,9 @@ const rootRouteChildren: RootRouteChildren = {
   ExplorarRoute: ExplorarRoute,
   GuiasRoute: GuiasRoute,
   LegalidadRoute: LegalidadRoute,
+  PerfilRoute: PerfilRoute,
+  PublicarRoute: PublicarRoute,
+  VerificacionRoute: VerificacionRoute,
   ApiChatRoute: ApiChatRoute,
   CheckoutIdRoute: CheckoutIdRoute,
   EjemplarIdRoute: EjemplarIdRoute,
