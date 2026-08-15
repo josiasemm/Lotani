@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Leaf, Lock } from "lucide-react";
 import { Logo } from "@/components/Logo";
-import { HeroScene } from "@/components/HeroScene";
+import hero from "@/assets/hero-reserva.jpg";
 
 
 export const Route = createFileRoute("/")({
@@ -27,29 +27,23 @@ export const Route = createFileRoute("/")({
 function Splash() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
-      <HeroScene />
-      <div className="absolute inset-0 bg-linear-to-b from-background/30 via-background/10 to-background/50" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[60%]"
-        style={{
-          background:
-            "radial-gradient(70% 55% at 50% 32%, color-mix(in oklab, var(--background) 78%, transparent) 0%, color-mix(in oklab, var(--background) 45%, transparent) 55%, transparent 100%)",
-        }}
+      <img
+        src={hero}
+        alt="Paisaje de reserva natural con niebla"
+        width={1920}
+        height={1080}
+        className="absolute inset-0 size-full object-cover opacity-45"
       />
+      <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/60 to-background" />
 
       <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <Logo className="animate-fade-up h-12 text-foreground sm:h-16" />
         <h1 className="animate-fade-up mt-8 text-3xl font-semibold tracking-tight sm:text-5xl">
           El comercio legal de fauna exótica, por fin en un solo lugar
         </h1>
-        <p className="animate-fade-up mt-5 max-w-2xl text-base text-[#EDF2EC] sm:text-lg">
+        <p className="animate-fade-up mt-5 max-w-2xl text-base text-[#E2E8E0] sm:text-lg">
           Criadores certificados PIMVS/UMA, documentación de procedencia legal en cada publicación
           y pago protegido con escrow.
-        </p>
-
-        <p className="animate-fade-up mt-4 text-sm font-medium text-[#C8E0C9]">
-          +120 criadores verificados · +850 ejemplares con procedencia legal · 100% pagos con escrow
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -57,18 +51,18 @@ function Splash() {
             to="/explorar"
             className="rounded-full bg-[#A9D3B0] px-8 py-3 font-bold text-[#101B14] transition-transform active:scale-95"
           >
-            Ver catálogo — sin registro
+            Descubrir ejemplares
           </Link>
           <Link
             to="/auth"
             className="rounded-full border border-foreground/30 px-8 py-3 font-normal transition-colors hover:bg-foreground/5"
           >
-            Ya tengo cuenta
+            Ingresar a LOTANI
           </Link>
         </div>
 
 
-        <div className="mt-44 grid w-full gap-4 sm:grid-cols-3">
+        <div className="mt-16 grid w-full gap-4 sm:grid-cols-3">
           {[
             { icon: ShieldCheck, t: "Criadores verificados", d: "Validación PIMVS/UMA ante SEMARNAT" },
             { icon: Lock, t: "Pago con escrow", d: "Fondos resguardados hasta la recepción" },
@@ -77,7 +71,7 @@ function Splash() {
             <div key={t} className="panel border border-[#2A3C2E] p-5 text-left">
               <Icon className="size-5 text-primary" />
               <p className="mt-3 font-semibold">{t}</p>
-              <p className="text-sm text-[#EDF2EC]">{d}</p>
+              <p className="text-sm text-[#E2E8E0]">{d}</p>
             </div>
           ))}
         </div>
