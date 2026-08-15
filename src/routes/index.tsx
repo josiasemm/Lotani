@@ -68,7 +68,7 @@ function Splash() {
         </div>
 
 
-        <div className="mt-16 grid w-full gap-4 sm:grid-cols-3">
+        <div className="mt-44 grid w-full gap-4 sm:grid-cols-3">
           {[
             { icon: ShieldCheck, t: "Criadores verificados", d: "Validación PIMVS/UMA ante SEMARNAT" },
             { icon: Lock, t: "Pago con escrow", d: "Fondos resguardados hasta la recepción" },

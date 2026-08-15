@@ -58,7 +58,7 @@ export function HeroScene() {
 
       {spot && (
         <div
-          className="absolute w-[180px] sm:w-[200px]"
+          className="absolute w-[260px] sm:w-[300px]"
           style={{ left: spot.left, top: spot.top, transform: "translate(-50%, -88%)" }}
         >
           <div className="relative aspect-[300/119] w-full">
