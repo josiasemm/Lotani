@@ -28,7 +28,15 @@ function Splash() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
       <HeroScene />
-      <div className="absolute inset-0 bg-linear-to-b from-background/45 via-background/20 to-background/60" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/30 via-background/10 to-background/50" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[60%]"
+        style={{
+          background:
+            "radial-gradient(70% 55% at 50% 32%, color-mix(in oklab, var(--background) 78%, transparent) 0%, color-mix(in oklab, var(--background) 45%, transparent) 55%, transparent 100%)",
+        }}
+      />
 
       <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <Logo className="animate-fade-up h-12 text-foreground sm:h-16" />
