@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Leaf, Lock } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { HeroScene } from "@/components/HeroScene";
+import { TurtleLoop } from "@/components/TurtleLoop";
 
 
 export const Route = createFileRoute("/")({
@@ -28,7 +29,7 @@ function Splash() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden">
       <HeroScene />
-      <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/55 to-background/85" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/45 via-background/20 to-background/60" />
 
       <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <Logo className="animate-fade-up h-12 text-foreground sm:h-16" />
@@ -44,7 +45,9 @@ function Splash() {
           +120 criadores verificados · +850 ejemplares con procedencia legal · 100% pagos con escrow
         </p>
 
-        <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3">
+        <TurtleLoop />
+
+        <div className="animate-fade-up mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/explorar"
             className="rounded-full bg-[#A9D3B0] px-8 py-3 font-bold text-[#101B14] transition-transform active:scale-95"
