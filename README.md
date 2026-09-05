@@ -163,3 +163,9 @@ Explore the live production deployment: **[lotani.vercel.app](https://lotani.ver
 ## ↳ License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+<br />
+
+<div align="center">
+  <img src="docs/images/turtle.gif" width="70" alt="Pixel Art Turtle Mascot" />
+</div>
