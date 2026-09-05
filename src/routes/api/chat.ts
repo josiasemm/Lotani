@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 import { EJEMPLARES } from "@/lib/lotani-data";
@@ -41,17 +42,27 @@ export const Route = createFileRoute("/api/chat")({
         if (!Array.isArray(body.messages)) {
           return new Response("Messages are required", { status: 400 });
         }
-        const key = process.env["LOVABLE_API_KEY"];
-        if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
 
-        const gateway = createOpenAICompatible({
-          name: "lovable",
-          baseURL: "https://ai.gateway.lovable.dev/v1",
-          headers: { "Lovable-API-Key": key },
-        });
+        const geminiKey =
+          process.env["GEMINI_API_KEY"] ||
+          process.env["GOOGLE_GENERATIVE_AI_API_KEY"] ||
+          process.env["GOOGLE_API_KEY"];
+        const lovableKey = process.env["LOVABLE_API_KEY"];
+
+        if (!geminiKey && !lovableKey) {
+          return new Response("Missing GEMINI_API_KEY (or LOVABLE_API_KEY)", { status: 500 });
+        }
+
+        const model = geminiKey
+          ? createGoogleGenerativeAI({ apiKey: geminiKey })("gemini-1.5-flash")
+          : createOpenAICompatible({
+              name: "lovable",
+              baseURL: "https://ai.gateway.lovable.dev/v1",
+              headers: { "Lovable-API-Key": lovableKey! },
+            })("google/gemini-1.5-flash");
 
         const result = streamText({
-          model: gateway("google/gemini-3.6-flash"),
+          model,
           system: body.modo === "tecnico" ? tecnico : legal,
           messages: await convertToModelMessages(body.messages),
         });

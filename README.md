@@ -2,7 +2,7 @@
 
 **AI-assisted digital sanctuary, zootechnical health records, and legal wildlife traceability platform.**
 
-<kbd>React 19</kbd> &nbsp; <kbd>TypeScript</kbd> &nbsp; <kbd>TanStack Start</kbd> &nbsp; <kbd>Tailwind CSS v4</kbd> &nbsp; <kbd>Google Gemini AI</kbd> &nbsp; <kbd>Firebase</kbd>
+<kbd>React 19</kbd> &nbsp; <kbd>TypeScript</kbd> &nbsp; <kbd>TanStack Start</kbd> &nbsp; <kbd>Tailwind CSS v4</kbd> &nbsp; <kbd>Google Gemini AI</kbd> &nbsp; <kbd>Radix UI</kbd>
 
 <br />
 
@@ -53,10 +53,10 @@
 
 ### 🛡️ Platform Capabilities
 - [x] **Specimen Lifecycle Tracking**: Continuous weight logs, feeding schedules, and shedding timelines
-- [x] **Legal Origin Ledger**: Cloud storage for official documentation and traceability identifiers
-- [x] **AI Diagnostic Assistant**: Real-time natural language consultation tuned for exotic animal care
+- [x] **Legal Origin Ledger**: Document records conforming to SEMARNAT / UMA regulatory requirements
+- [x] **AI Diagnostic Assistant**: Real-time natural language consultation powered by Google Gemini API
 - [x] **Microclimate Engine**: Precise parameters for basking/cool zones, UVB index, and humidity gradients
-- [x] **Cloud Sync & Identity**: Secure authentication and real-time database via Firebase
+- [x] **Reactive Client Session**: Local session persistence and role management (Keeper / Breeder)
 
 ---
 
@@ -66,7 +66,7 @@
 | :--- | :--- | :--- |
 | **Digital Carnet** | Comprehensive medical log with weight history and shedding cycles | Eliminates paper records and prevents chronic husbandry oversights |
 | **Zootechnical Guides** | Interactive species sheets with photoperiod, temperature, and diet | Provides validated scientific standards for reptile and amphibian habitats |
-| **Gemini AI Consultant** | Context-aware generative advisory powered by Vercel AI SDK | Instant answers to emergency husbandry and dietary questions |
+| **Gemini AI Consultant** | Context-aware generative advisory powered by Google Gemini API | Instant answers to emergency husbandry and dietary questions |
 | **Legal Compliance Hub** | Repository for UMA/PIMVS registration numbers and official invoices | Fosters ethical trade and combats illegal wildlife trafficking |
 | **Adoption & Marketplace** | Responsible specimen transfers and status tracking flows | Connects verified legal keepers with prospective caretakers |
 
@@ -80,9 +80,8 @@ flowchart LR
     Web --> Router["TanStack Start & Router<br/>(Full-Stack SSR / CSR)"]
     Web --> UI["Tailwind CSS v4 & Radix UI<br/>(Accessible Design System)"]
 
-    Router --> Auth["Firebase Auth<br/>(User Management)"]
-    Router --> DB[("Cloud Firestore<br/>(Specimens & Carnets)")]
-    Router --> AI["Google Gemini API<br/>(Vercel AI SDK)"]
+    Router --> Store["Client Session & Storage<br/>(Specimens & Carnets)"]
+    Router --> AI["Google Gemini API<br/>(@ai-sdk/google)"]
 ```
 
 ```text
@@ -101,7 +100,7 @@ LOTANI/
 │   │   └── api/                    # Server-side API endpoints (Gemini integration)
 │   ├── components/                 # Reusable Radix UI & custom component library
 │   ├── hooks/                      # Custom React hooks (auth, store, queries)
-│   └── lib/                        # Firebase config, utility functions, and AI clients
+│   └── lib/                        # Session storage, data constants, and AI clients
 ├── docs/images/                    # Production interface screenshots
 ├── bun.lock                        # Reproducible dependency lockfile
 ├── package.json                    # Application metadata and scripts
@@ -116,19 +115,18 @@ LOTANI/
 ### Prerequisites
 * **Node.js** 18+ or **Bun** (recommended)
 * **Git**
-* Firebase Project credentials
-* Google Gemini API Key
+* **Google Gemini API Key** (from [Google AI Studio](https://aistudio.google.com/))
 
 ### Local Setup
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/josiasemm/LOTANI.git
-cd LOTANI
+git clone https://github.com/josiasemm/Lotani.git
+cd Lotani
 
-# 2. Install dependencies (Bun recommended)
-bun install
-# or: npm install
+# 2. Install dependencies (Bun or npm)
+npm install
+# or: bun install
 
 # 3. Configure environment variables
 cp .env.example .env.local
@@ -136,11 +134,7 @@ cp .env.example .env.local
 
 ### Environment Variables (`.env.local`)
 ```ini
-VITE_GEMINI_API_KEY=your_google_gemini_api_key
-VITE_FIREBASE_API_KEY=your_firebase_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+GEMINI_API_KEY=your_google_gemini_api_key
 ```
 
 ### Run Development Server
